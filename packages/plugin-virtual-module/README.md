@@ -1,30 +1,36 @@
-# Your Package
+# rspack-plugin-virtual-module
 
-## Get Started
+A plugin for rspack that allows you to create virtual modules.
 
-按开发环境的要求，运行和调试项目
+## Installation
 
-运行和调试组件
-
-```
-pnpm run dev
-```
-
-运行测试用例
-
-```
-pnpm run test
+```bash
+# npm
+npm install rspack-plugin-virtual-module
+# yarn
+yarn add rspack-plugin-virtual-module
+# pnpm
+pnpm add rspack-plugin-virtual-module
 ```
 
-按照社区规范和最佳实践，生成构建产物
+## Usage
 
-```
-pnpm run build
+```js
+const VirtualModulePlugin = require('rspack-plugin-virtual-module');
+// rspack.config.js
+module.exports = {
+  plugins: [
+    new VirtualModulePlugin({
+      contents: 'export default "Hello World";',
+    }),
+  ],
+};
 ```
 
-继续创建更多项目要素
+Then you can import the virtual module in your code:
 
-```
-pnpm run new
-```
+```js
+import hello from 'contents';
 
+console.log(hello); // "Hello World"
+```
