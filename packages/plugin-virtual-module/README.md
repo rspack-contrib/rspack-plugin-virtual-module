@@ -16,11 +16,11 @@ pnpm add rspack-plugin-virtual-module
 ## Usage
 
 ```js
-const VirtualModulePlugin = require('rspack-plugin-virtual-module');
+const { RspackVirtualModulePlugin } = require('rspack-plugin-virtual-module');
 // rspack.config.js
 module.exports = {
   plugins: [
-    new VirtualModulePlugin({
+    new RspackVirtualModulePlugin({
       contents: 'export default "Hello World";',
     }),
   ],

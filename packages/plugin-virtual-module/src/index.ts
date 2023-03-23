@@ -44,7 +44,7 @@ export class RspackVirtualModulePlugin implements RspackPluginInstance {
   }
 
   #normalizePath(p: string) {
-    return path.join(this.#tempDir, p);
+    return path.join(this.#tempDir, p.endsWith('.js') ? p : `${p}.js`);
   }
 }
 
