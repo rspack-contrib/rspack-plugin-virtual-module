@@ -70,7 +70,7 @@ export class DotenvPlugin implements RspackPluginInstance {
   private config: DotenvPluginConfig;
 
   constructor(options: DotenvPluginOptions = {}) {
-    this.config = { ...options, path: './.env', prefix: 'process.env.' };
+    this.config = { path: './.env', prefix: 'process.env.', ...options };
   }
 
   apply(compiler: Compiler) {
