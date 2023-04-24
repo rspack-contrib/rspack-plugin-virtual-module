@@ -5,6 +5,10 @@
       "path": "packages/plugin-virtual-module/"
     },
     {
+      "name": "plugin-dotenv",
+      "path": "packages/plugin-dotenv/"
+    },
+    {
       "name": "monorepo",
       "path": "."
     }
@@ -32,10 +36,7 @@
       "**/bower_components": true
     },
     //
-    "editor.rulers": [
-      80,
-      120
-    ],
+    "editor.rulers": [80, 120],
     "files.eol": "\n",
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
