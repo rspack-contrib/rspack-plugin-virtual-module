@@ -1,0 +1,32 @@
+{
+  "name": "rspack-plugin-dotenv",
+  "version": "0.0.0",
+  "jsnext:source": "./src/index.ts",
+  "main": "./dist/index.js",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@modern-js/tsconfig": "2.9.0",
+    "@rspack/core": "^0.1.2",
+    "@types/jest": "~29.2.4",
+    "@types/node": "~16.11.7",
+    "@types/react": "~18.0.26",
+    "husky": "~8.0.1",
+    "lint-staged": "~13.1.0",
+    "typescript": "~4.9.4",
+    "@types/dotenv-defaults": "~2.0.1"
+  },
+  "sideEffects": [],
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "dotenv-defaults": "~5.0.2"
+  }
+}
