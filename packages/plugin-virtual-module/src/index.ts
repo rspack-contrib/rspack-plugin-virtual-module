@@ -23,6 +23,14 @@ export class RspackVirtualModulePlugin implements RspackPluginInstance {
     Object.entries(this.#staticModules).forEach(([path, content]) => {
       fs.writeFileSync(this.#normalizePath(path), content);
     });
+    const originalResolveModulesDir = compiler.options.resolve.modules || [
+      'node_modules',
+    ];
+    compiler.options.resolve.modules = [
+      ...originalResolveModulesDir,
+      this.#tempDir,
+    ];
+    // compiler.options.resolve.extensions = [...originalExtensions, '.js'];
     compiler.options.resolve.alias = {
       ...compiler.options.resolve.alias,
       ...Object.keys(this.#staticModules).reduce((acc, p) => {

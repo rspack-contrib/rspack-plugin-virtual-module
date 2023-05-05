@@ -34,3 +34,23 @@ import hello from 'contents';
 
 console.log(hello); // "Hello World"
 ```
+
+If you want to dynamically write the contents of the virtual module, you can use the `writeModule` method:
+
+```js
+// rspack.config.js
+const { RspackVirtualModulePlugin } = require('rspack-plugin-virtual-module');
+
+const vmp = new RspackVirtualModulePlugin({
+  contents: 'export default "Hello World";',
+});
+
+// Write the contents of the virtual module after 1 second
+setTimeout(() => {
+  vmp.writeModule('export default "Hello World 2";');
+}, 1000);
+
+module.exports = {
+  plugins: [vmp],
+};
+```
