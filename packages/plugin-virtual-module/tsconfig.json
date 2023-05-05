@@ -3,6 +3,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist",
+    "esModuleInterop": true,
     "declaration": true,
     "paths": {
       "@/*": ["./src/*"]

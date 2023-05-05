@@ -1,4 +1,13 @@
 const { RspackVirtualModulePlugin } = require('../dist');
+
+const vmp = new RspackVirtualModulePlugin({
+  '@theme': 'export default "theme"',
+});
+
+setTimeout(() => {
+  vmp.writeModule('a', 'export default "123123"');
+}, 2e3);
+
 /**
  * @type {import('@rspack/cli').Configuration}
  */
@@ -14,11 +23,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new RspackVirtualModulePlugin({
-      '@theme': 'export default "123123"',
-    }),
-  ],
+  plugins: [vmp],
   module: {
     rules: [
       {

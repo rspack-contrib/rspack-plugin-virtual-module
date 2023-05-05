@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import './App.css';
 import s from '@theme';
+import a from 'a';
 
-console.log(s);
+console.log(s, a);
 
 function App() {
   const [count, setCount] = useState(0);
