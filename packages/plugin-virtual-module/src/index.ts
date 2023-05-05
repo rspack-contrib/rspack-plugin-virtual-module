@@ -30,7 +30,6 @@ export class RspackVirtualModulePlugin implements RspackPluginInstance {
       ...originalResolveModulesDir,
       this.#tempDir,
     ];
-    // compiler.options.resolve.extensions = [...originalExtensions, '.js'];
     compiler.options.resolve.alias = {
       ...compiler.options.resolve.alias,
       ...Object.keys(this.#staticModules).reduce((acc, p) => {
