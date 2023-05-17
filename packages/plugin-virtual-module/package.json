@@ -1,6 +1,6 @@
 {
   "name": "rspack-plugin-virtual-module",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "jsnext:source": "./src/index.ts",
   "main": "./dist/index.js",
   "scripts": {
