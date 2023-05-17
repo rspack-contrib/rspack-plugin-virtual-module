@@ -42,7 +42,6 @@ export class RspackVirtualModulePlugin implements RspackPluginInstance {
 
   writeModule(path: string, content: string) {
     const normalizedPath = this.#normalizePath(path);
-    this.#staticModules[normalizedPath] = content;
     fs.writeFileSync(normalizedPath, content);
   }
 
