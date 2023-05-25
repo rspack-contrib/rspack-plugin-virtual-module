@@ -1,6 +1,7 @@
 {
   "name": "rspack-plugin-dotenv",
   "version": "0.0.0",
+  "license": "MIT",
   "jsnext:source": "./src/index.ts",
   "main": "./dist/index.js",
   "scripts": {
