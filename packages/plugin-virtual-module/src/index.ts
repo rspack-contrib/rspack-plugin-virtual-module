@@ -1,4 +1,5 @@
 import path from 'path';
+import crypto from 'crypto';
 import fs from 'fs-extra';
 import type { RspackPluginInstance, Compiler } from '@rspack/core';
 
@@ -13,9 +14,13 @@ export class RspackVirtualModulePlugin implements RspackPluginInstance {
     if (!fs.existsSync(nodeModulesDir)) {
       fs.mkdirSync(nodeModulesDir);
     }
-    this.#tempDir = fs.mkdtempSync(
-      path.join(nodeModulesDir, 'rspack-virtual-module-'),
-    );
+    const hash = crypto
+      .createHash('md4')
+      .update(JSON.stringify(this.#staticModules))
+      .digest('hex')
+      .slice(0, 8);
+    this.#tempDir = path.join(nodeModulesDir, `rspack-virtual-module-${hash}`);
+    fs.mkdirSync(this.#tempDir);
   }
 
   apply(compiler: Compiler) {
