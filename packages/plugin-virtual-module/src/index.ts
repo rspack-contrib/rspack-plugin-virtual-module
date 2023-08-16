@@ -20,7 +20,9 @@ export class RspackVirtualModulePlugin implements RspackPluginInstance {
       .digest('hex')
       .slice(0, 8);
     this.#tempDir = path.join(nodeModulesDir, `rspack-virtual-module-${hash}`);
-    fs.mkdirSync(this.#tempDir);
+    if (!fs.existsSync(this.#tempDir)) {
+      fs.mkdirSync(this.#tempDir);
+    }
   }
 
   apply(compiler: Compiler) {
