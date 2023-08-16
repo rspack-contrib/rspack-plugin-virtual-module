@@ -1,7 +1,6 @@
 {
   "name": "rspack-plugin-virtual-module",
-  "version": "0.1.4",
-  "license": "MIT",
+  "version": "0.1.8",
   "jsnext:source": "./src/index.ts",
   "main": "./dist/index.js",
   "scripts": {
@@ -27,6 +26,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
+  "license": "MIT",
   "dependencies": {
     "fs-extra": "^11.1.1"
   }
