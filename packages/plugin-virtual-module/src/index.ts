@@ -15,7 +15,7 @@ export class RspackVirtualModulePlugin implements RspackPluginInstance {
       fs.mkdirSync(nodeModulesDir);
     }
     const hash = crypto
-      .createHash('md4')
+      .createHash('md5')
       .update(JSON.stringify(this.#staticModules))
       .digest('hex')
       .slice(0, 8);
