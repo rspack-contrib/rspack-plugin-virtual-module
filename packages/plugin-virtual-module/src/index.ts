@@ -8,18 +8,26 @@ export class RspackVirtualModulePlugin implements RspackPluginInstance {
 
   #tempDir: string;
 
-  constructor(staticModules: Record<string, string>) {
+  constructor(staticModules: Record<string, string>, tempDir?: string) {
     this.#staticModules = staticModules;
     const nodeModulesDir = join(process.cwd(), 'node_modules');
     if (!fs.existsSync(nodeModulesDir)) {
       fs.mkdirSync(nodeModulesDir);
     }
-    const hash = crypto
-      .createHash('md5')
-      .update(JSON.stringify(this.#staticModules))
-      .digest('hex')
-      .slice(0, 8);
-    this.#tempDir = path.join(nodeModulesDir, `rspack-virtual-module-${hash}`);
+
+    if (!tempDir) {
+      const hash = crypto
+        .createHash('md5')
+        .update(JSON.stringify(this.#staticModules))
+        .digest('hex')
+        .slice(0, 8);
+      this.#tempDir = path.join(
+        nodeModulesDir,
+        `rspack-virtual-module-${hash}`,
+      );
+    } else {
+      this.#tempDir = path.join(nodeModulesDir, tempDir);
+    }
     if (!fs.existsSync(this.#tempDir)) {
       fs.mkdirSync(this.#tempDir);
     }
