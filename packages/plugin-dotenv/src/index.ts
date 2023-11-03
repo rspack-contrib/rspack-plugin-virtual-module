@@ -1,6 +1,7 @@
 import { readFileSync } from 'fs';
 import dotenv from 'dotenv-defaults';
 import type { Compiler, RspackPluginInstance, Target } from '@rspack/core';
+import { DefinePlugin } from '@rspack/core';
 import { interpolate, isMainThreadElectron } from './utils';
 
 export interface DotenvPluginOptions {
@@ -77,8 +78,9 @@ export class DotenvPlugin implements RspackPluginInstance {
     const variables = this.gatherVariables();
     const target = compiler.options.target ?? 'web';
     const data = this.formatData(variables, target);
-    const define = compiler.options.builtins.define || {};
-    compiler.options.builtins.define = { ...define, ...data };
+    new DefinePlugin({
+      ...data,
+    }).apply(compiler);
   }
 
   gatherVariables() {
