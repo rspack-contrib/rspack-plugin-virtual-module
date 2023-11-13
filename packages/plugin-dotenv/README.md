@@ -40,7 +40,7 @@ S3_API=mysecretkey
 
 ```javascript
 // rspack.config.js
-const DotenvPlugin = require('rspack-plugin-dotenv');
+const { DotenvPlugin } = require('rspack-plugin-dotenv');
 
 module.exports = {
   ...
