@@ -36,7 +36,7 @@ export class RspackVirtualModulePlugin implements RspackPluginInstance {
   apply(compiler: Compiler) {
     // Write the modules to the disk
     Object.entries(this.#staticModules).forEach(([path, content]) => {
-      fs.writeFileSync(this.#normalizePath(path), content);
+      this.writeModule(path, content);
     });
     const originalResolveModulesDir = compiler.options.resolve.modules || [
       'node_modules',
