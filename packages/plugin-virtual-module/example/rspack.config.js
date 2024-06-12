@@ -2,10 +2,11 @@ const { RspackVirtualModulePlugin } = require('../dist');
 
 const vmp = new RspackVirtualModulePlugin({
   '@theme': 'export default "theme"',
+  '@foo/bar': 'export default "foobar"',
 });
 
 setTimeout(() => {
-  vmp.writeModule('a', 'export default "123123"');
+  vmp.writeModule('@theme', 'export default "123123"');
 }, 2e3);
 
 /**
