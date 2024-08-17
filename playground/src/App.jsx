@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import './App.css';
-import s from '@theme';
 import t from '@foo/bar';
+import s from '@theme';
 
 console.log(s, t);
 
@@ -12,13 +12,13 @@ function App() {
   return (
     <div className="App">
       <div>
-        <a href="https://reactjs.org" target="_blank">
+        <a href="https://reactjs.org" target="_blank" rel="noreferrer">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
       <h1>Rspack + React</h1>
       <div className="card">
-        <button onClick={() => setCount(count => count + 1)}>
+        <button type="button" onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
         <p>

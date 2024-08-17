@@ -1,46 +1,15 @@
+# Local
 .DS_Store
-
-.pnp
-.pnp.js
-.env.local
-.env.*.local
-.history
-.rts*
+*.local
 *.log*
-*.pid
-*.pid.*
-*.report
-*.lcov
-lib-cov
 
-node_modules/
-.npm
-.lock-wscript
-.yarn-integrity
-.node_repl_history
-.nyc_output
-*.tsbuildinfo
-.eslintcache
-.sonarlint
-
+# Dist
+node_modules
 dist/
-coverage/
-release/
-output/
-output_resource/
-log/
+test-results
 
-.vscode/**/*
+# IDE
+.vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
-.idea/
-
-**/*/typings/auto-generated
-
-.changeset/pre.json
-
-.pnpm-store/
-
-modern.config.local.ts
-modern.config.local.js
-modern.config.local.mjs
+.idea

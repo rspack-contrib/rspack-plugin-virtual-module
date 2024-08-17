@@ -1,8 +1,49 @@
-# Rspack Community Plugins
+# rsbuild-plugin-example
 
-This is a list of community plugins for [rspack](https://github.com/web-infra-dev/rspack).
+rsbuild-plugin-example is a Rsbuild plugin to do something.
 
-## Plugins
+<p>
+  <a href="https://npmjs.com/package/rsbuild-plugin-example">
+   <img src="https://img.shields.io/npm/v/rsbuild-plugin-example?style=flat-square&colorA=564341&colorB=EDED91" alt="npm version" />
+  </a>
+  <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square&colorA=564341&colorB=EDED91" alt="license" />
+</p>
 
-- [rspack-plugin-virtual-module](./packages/plugin-virtual-module/): A plugin for rspack that allows you to create virtual modules.
-- [rspack-plugin-dotenv](./packages/plugin-dotenv/): A secure rspack plugin that supports dotenv and other environment variables and only exposes what you choose and use.
+## Usage
+
+Install:
+
+```bash
+npm add rsbuild-plugin-example -D
+```
+
+Add plugin to your `rsbuild.config.ts`:
+
+```ts
+// rsbuild.config.ts
+import { pluginExample } from "rsbuild-plugin-example";
+
+export default {
+  plugins: [pluginExample()],
+};
+```
+
+## Options
+
+### foo
+
+Some description.
+
+- Type: `string`
+- Default: `undefined`
+- Example:
+
+```js
+pluginExample({
+  foo: "bar",
+});
+```
+
+## License
+
+[MIT](./LICENSE).
