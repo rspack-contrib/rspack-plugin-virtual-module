@@ -1,7 +1,7 @@
-import path, { dirname, join, extname } from 'path';
-import crypto from 'crypto';
+import crypto from 'node:crypto';
+import path, { dirname, join, extname } from 'node:path';
+import type { Compiler, RspackPluginInstance } from '@rspack/core';
 import fs from 'fs-extra';
-import type { RspackPluginInstance, Compiler } from '@rspack/core';
 
 export class RspackVirtualModulePlugin implements RspackPluginInstance {
   #staticModules: Record<string, string>;
@@ -35,9 +35,9 @@ export class RspackVirtualModulePlugin implements RspackPluginInstance {
 
   apply(compiler: Compiler) {
     // Write the modules to the disk
-    Object.entries(this.#staticModules).forEach(([path, content]) => {
+    for (const [path, content] of Object.entries(this.#staticModules)) {
       this.writeModule(path, content);
-    });
+    }
     const originalResolveModulesDir = compiler.options.resolve.modules || [
       'node_modules',
     ];
@@ -47,10 +47,13 @@ export class RspackVirtualModulePlugin implements RspackPluginInstance {
     ];
     compiler.options.resolve.alias = {
       ...compiler.options.resolve.alias,
-      ...Object.keys(this.#staticModules).reduce((acc, p) => {
-        acc[p] = this.#normalizePath(p);
-        return acc;
-      }, {} as Record<string, string>),
+      ...Object.keys(this.#staticModules).reduce(
+        (acc, p) => {
+          acc[p] = this.#normalizePath(p);
+          return acc;
+        },
+        {} as Record<string, string>,
+      ),
     };
     process.on('exit', this.clear.bind(this));
   }
