@@ -9,15 +9,15 @@ An Rspack plugin that allows you to create virtual modules.
   <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square&colorA=564341&colorB=EDED91" alt="license" />
 </p>
 
-A plugin for rspack that allows you to create virtual modules.
-
 ## Installation
 
 ```bash
 # npm
 npm install rspack-plugin-virtual-module
+
 # yarn
 yarn add rspack-plugin-virtual-module
+
 # pnpm
 pnpm add rspack-plugin-virtual-module
 ```
