@@ -1,6 +1,6 @@
 {
   "name": "rspack-plugin-virtual-module",
-  "version": "0.1.13",
+  "version": "1.0.0",
   "repository": "https://github.com/rspack-contrib/rspack-plugin-virtual-module",
   "license": "MIT",
   "type": "module",
