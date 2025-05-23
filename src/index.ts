@@ -55,7 +55,7 @@ export class RspackVirtualModulePlugin implements RspackPluginInstance {
         {} as Record<string, string>,
       ),
     };
-    compiler.hooks.done.tap('RspackVirtualModulePlugin', () => {
+    compiler.hooks.shutdown.tap('RspackVirtualModulePlugin', () => {
       this.clear.bind(this);
     });
   }
