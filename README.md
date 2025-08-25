@@ -2,6 +2,9 @@
 
 An Rspack plugin that allows you to create virtual modules.
 
+> [!WARNING]
+> This plugin is no longer maintained as Rspack v1.5 now provides a built-in [VirtualModulesPlugin](https://rspack.rs/plugins/rspack/virtual-modules-plugin) with better performance. Please use the built-in plugin instead of this one.
+
 <p>
   <a href="https://npmjs.com/package/rspack-plugin-virtual-module">
    <img src="https://img.shields.io/npm/v/rspack-plugin-virtual-module?style=flat-square&colorA=564341&colorB=EDED91" alt="npm version" />
