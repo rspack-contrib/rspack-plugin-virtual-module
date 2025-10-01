@@ -11,8 +11,8 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@types/react": "^18.3.23",
+    "@types/react": "^18.3.25",
     "@types/react-dom": "^18.3.7",
-    "@rspack/cli": "^1.4.11"
+    "@rspack/cli": "^1.5.8"
   }
 }
